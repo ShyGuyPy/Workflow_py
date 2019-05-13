@@ -1,4 +1,4 @@
-#stepping through an interesting marshmallow tutorial
+t#stepping through an interesting marshmallow tutorial
 #https://www.youtube.com/watch?v=S7Fh5XnuhPU
 
 from marshmallow import Schema, fields, pprint, post_load
@@ -38,3 +38,4 @@ result = schema.load(input_dict)
 pprint(result.data)
 pprint(input_dict['my_class'])
 #pprint(the_player)
+print(result.errors)

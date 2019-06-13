@@ -21,11 +21,11 @@ class Data(Base):
     year = Column(Integer)
     month = Column(Integer)
     res = Column(Float)
-    solids = Column(Text)
-    NTU = Column(Text)
-    org_ml = Column(Text)
-    MPN_100ml = Column(Text)
-    MPN_100ml_1 = Column(Text)
+    solids = Column(Integer)#Bool
+    NTU = Column(Integer)#Bool
+    org_ml = Column(Integer)#Bool
+    MPN_100ml = Column(Integer)#Bool
+    MPN_100ml_1 = Column(Integer)#Bool
     LosR = Column(Float)
     Silica = Column(Float)
     Ca = Column(Float)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
 #try:
 
-    file_name = "data/Reservoir_intake_tweaked.csv"
+    file_name = "data/Reservoir_intake_retweaked.csv"
     data = Load_Data(file_name)
 
     print(data)

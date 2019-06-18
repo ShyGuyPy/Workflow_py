@@ -9,6 +9,7 @@ import os
 app = Flask(__name__)
 
 app.config.from_object(Config)
+#app.comfig['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////C/Users/icprbadmin/Documents/Python_Scripts/Workflow_py/test.db'
 
 #SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db')
 

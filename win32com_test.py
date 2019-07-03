@@ -20,7 +20,11 @@ wg.ShowWindow(app_ID, win32con.SW_MAXIMIZE)
 #es_handle.Execute("""ActivateApplication()""")
 
 #brings specified worksheet to forefront
-es_handle.Execute("""ActivateWorksheet("test_model.mox")""")
+#es_handle.Execute("""ActivateWorksheet("test_model.mox")""")
 
 #set the run parameters SetEndTime, SetStartTime, SetNumSim, SetNumStep
 #es_handle.Execute(""" SetRunParameters(10000, 0 , 1, 1) """)
+es_handle.Execute("""ShowFunction-Help(1)""")
+
+
+#  python win32com_test.py

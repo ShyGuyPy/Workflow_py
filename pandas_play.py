@@ -8,4 +8,10 @@ print(data_df)
 data_df['t3']= [data_df.iloc[0,0][-5:-4],data_df.iloc[1,0][-5:-4]]
 # test = data_df.iloc[0,1]
 # print(test)
+
+data_df =pd.concat([data_df,pd.DataFrame(columns=("coltest1", "coltest2") ##(columns=list('ABCD')
+                                         )], sort=False)
+
+data_df.iloc[0, data_df.columns.get_loc('t2')] = "butter"
+
 print(data_df)

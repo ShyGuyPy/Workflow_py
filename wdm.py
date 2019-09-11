@@ -25,7 +25,8 @@ for file in allFiles1:
 
 datetime_row = list(data_df.index.values)
 check2 = data_df.iloc[7,0]
-print(check2)
+dtr2 = datetime_row[0:5]
+print(dtr2)
 
 #add rows to dataframe
 data_df =pd.concat([data_df,pd.DataFrame(columns=("year", "month", "day", "hour") #(columns=list('ABCD')
@@ -37,7 +38,7 @@ data_df =pd.concat([data_df,pd.DataFrame(columns=("year", "month", "day", "hour"
 pd.options.mode.chained_assignment = None  # default='warn'
 
 count = 0
-for i in datetime_row:
+for i in dtr2:#datetime_row:
     #datetime object to string
     dt = str(i)
     # grabbing select parts of the datetime object for each entry in the data
@@ -45,9 +46,11 @@ for i in datetime_row:
     month = dt[-24:-22]
     day = dt[-21:-19]
     hour = dt[-18:-16]
+
     #then assign each to respective column
-    data_df[year][count] = year
     data_df.iloc[count, data_df.columns.get_loc('year')] = year
+    #print(count)
+
     # data_df.iloc[count,3] = month
     # data_df.iloc[count,4] = day
     # data_df.iloc[count,5] = hour

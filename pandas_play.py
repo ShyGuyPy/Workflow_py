@@ -18,4 +18,6 @@ butter = 333
 
 data_df.iloc[0, data_df.columns.get_loc('t2')] = butter
 
-#print(data_df)
+data_df['coltest1'] = data_df['t1']
+
+print(data_df)

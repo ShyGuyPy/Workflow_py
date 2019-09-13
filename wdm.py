@@ -1,17 +1,38 @@
 from wdmtoolbox import wdmtoolbox
 import glob
 import pandas as pd
+from sys import platform
 
-#this is the directory where the raw wdm files are placed
-source_dir_met = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\input\met"
-source_dir_prad = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\input\prad"
+if platform == "linux" or platform == "linux2":
+    # linux
+    pass
+elif platform == "darwin":
+    # OS X
 
-#create object containing all files in for met and prad
-allFiles1 = glob.glob(source_dir_met + "/*met*.wdm*")
-allFiles2 = glob.glob(source_dir_prad+ "/*prad*.wdm*")
+    # this is the directory where the raw wdm files are placed
+    source_dir_met = r"/Users/lukevawter/Desktop/Python_ICPRB/FEWS_WDM/input/met"
+    source_dir_prad = r"/Users/lukevawter/Desktop/Python_ICPRB/FEWS_WDM/input/prad"
 
-#our file destintion
-output_folder = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\output"
+    # create object containing all files in for met and prad
+    allFiles1 = glob.glob(source_dir_met + "/*met*.wdm*")
+    allFiles2 = glob.glob(source_dir_prad + "/*prad*.wdm*")
+
+    # our file destintion
+    output_folder = r"/Users/lukevawter/Desktop/Python_ICPRB/FEWS_WDM/output"
+    print("mac os")
+elif platform == "win32":
+    # Windows...
+
+    #this is the directory where the raw wdm files are placed
+    source_dir_met = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\input\met"
+    source_dir_prad = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\input\prad"
+
+    #create object containing all files in for met and prad
+    allFiles1 = glob.glob(source_dir_met + "/*met*.wdm*")
+    allFiles2 = glob.glob(source_dir_prad+ "/*prad*.wdm*")
+
+    #our file destintion
+    output_folder = r"C:\Users\icprbadmin\Documents\Python_Scripts\Workflow_py\output"
 
 #iterate through the met files
 for file in allFiles1:
@@ -23,7 +44,9 @@ for file in allFiles1:
     #output extracted pandas df to csv
     #data_df.to_csv(output_folder +"/" + title + ".csv")
 
-datetime_values = list(data_df.index.array)#.index.values)
+print(title)
+
+datetime_values = list(data_df.index.values) #.index.array)#
 check2 = data_df.iloc[7,0]
 dtr2 = datetime_values[0:5]
 
@@ -75,16 +98,17 @@ pd.options.mode.chained_assignment = None  # default='warn'
 #     # data_df.iloc[count,5] = hour
 #     count +=1
 
-data_df.to_csv(output_folder +"/" + title + ".csv")
+# data_df.to_csv(output_folder +"/" + title + ".csv")
 
 
 #print(dtr2)
 #print(df_shape)
 #print(datetime_values)
 #print(datetime_values_df)
+#print(data_df)
 
 # for col in data_df.columns:
 #     print(col)
 
-print(data_df.keys())
+print(data_df.axes)
 #print(count)

@@ -46,11 +46,6 @@ if (__name__ == '__main__'):
             importDir = None
             archiveDir = None
             host = None
-            port = None
-            usr = None
-            pw = None
-            path = None
-            lookback = None
             for i in range(0,len(key)):
                 if (key[i].upper() == 'IMPORTDIR'):
                     importDir = value[i]
@@ -96,7 +91,7 @@ if (__name__ == '__main__'):
 # Retrieve list of files from sftp site
     s=sftp.listdir(path)
 # List of files in directory based on lookback period in hours
-    allfiles=[filename for filename in s if filename.endswith('.gz')][-hrsback:]
+    allfiles=[filename for filename in s if filename.endswith('.grib')][-hrsback:]
 #    print allfiles
 #    exit ('test')
 
@@ -108,19 +103,6 @@ if (__name__ == '__main__'):
 #        Store file in Archive Directory - TEMPORARILY SUSPEND
 #        with open(archiveDir +file, 'wb') as a:
 #            a.write(grib)
-
-    # 6
-    try:
-        sftp.close()
-        print("6 closed sftp object")
-    except:
-        print("6 sftp did not close")
-    # 7
-    try:
-        f.close()#importDir.close()
-        print("7 closed importDir object")
-    except:
-        print("7 importDir did not close")
 
     FEWSConnect.logFileToXML(logFile, runInfo['outputDiagnosticFile'])
 

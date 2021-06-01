@@ -82,11 +82,11 @@ if (__name__ == '__main__'):
         transport.connect(username = usr, password = pw)
         sftp = SFTPClient.from_transport(transport)
         log.info('Succesfully connected to %s', host)
-        print('Successfully connected to '+host)
+        print(('Successfully connected to '+host))
     except:
         log.warning('Could not connect to %s', host)
         print('could not connect')
-        print format_exc()
+        print(format_exc())
 
 
 # defines number of hours (files) to retrieve based on lookback value (in days)
